@@ -1,0 +1,16 @@
+tiene(maria,botella).
+es_un(san_luis,marca).
+de(marca,botella).
+de(botella,agua).
+tiene_densidad(agua,1).
+tiene_densidad(alcohol,0.79).
+tiene(agua,estado).
+es_un(hielo,estado).
+es_un(liquido,estado).
+es_un(gas,estado).
+tiene(liquido,punto_de_congelacion).
+tiene(liquido,punto_de_ebullicion).
+convierte_en(punto_de_ebullicion,gas).
+convierte_en(punto_de_congelacion,hielo).
+mayor_a(punto_de_ebullicion,100).
+menor_a(punto_de_congelacion,0).
