@@ -1,0 +1,16 @@
+desea_un(usuario,vehiculo).
+tipo_de(vehiculo,dos_puertas).
+tipo_de(vehiculo,cuatro_puertas).
+tipo_de(vehiculo,traccion_a_las_cuatro_ruedas).
+tiene(vehiculo,caja_de_cambios).
+tipo_de(manual,caja_de_cambios).
+tipo_de(automatico,caja_de_cambios).
+tiene_aire(vehiculo,si_tiene).
+tiene_aire(vehiculo,no_tiene).
+de(clase,vehiculo).
+es_un(compacto,clase).
+es_un(economico,clase).
+es_un(lujo,clase).
+recorre(vehiculo,distancia).
+en(distancia,milla).
+en(distancia,kilometro).
