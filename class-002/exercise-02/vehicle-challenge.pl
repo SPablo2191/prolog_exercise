@@ -1,3 +1,22 @@
+select_vehicle() :-
+  write('Bienvenido al sistema experto de selección de vehiculo'),
+  nl,
+  write('Autor: Pablo Sandoval'),
+  nl,
+  write('Ingrese Destino:'),
+  read(X),
+  nl,
+  write('Ingrese tipo de vehiculo:'),
+  nl,
+  read(Y),
+  write('Ingrese Clase de vehiculo:'),
+  read(W),
+  write('Ingrese tipo de caja de cambios:'),
+  read(Z),
+  vehiculo_disponibles(X,Y,W,Z,A,S,D,F,G)
+  .
+
+
 desea_un(usuario,vehiculo).
 tipo_de(vehiculo,dos_puertas).
 tipo_de(vehiculo,cuatro_puertas).
