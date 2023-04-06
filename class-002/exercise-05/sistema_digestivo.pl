@@ -26,9 +26,9 @@ parte_de(antro,estomago).
 parte_de(fundus,estomago).
 funcion_de(mezclar,estomago).
 funcion_de(digestion,estomago).
-emplea(digestion,jugos).
-parte_de(acido_clorhidrico,jugos).
-parte_de(enzima_pepsina,jugos).
+emplea(digestion,jugo_gastrico).
+parte_de(acido_clorhidrico,enzima_pepsina,jugo_gastrico).
+
 
 conecta_con(fundus,piloro).
 %intestino_delgado%
@@ -38,14 +38,12 @@ conecta_con(yeyuno,ileon).
 parte_de(duodeno,intestino_delgado).
 parte_de(yeyuno,intestino_delgado).
 parte_de(ileon,intestino_delgado).
+tiene(duodeno,jugo_pancreatico).
+parte(jugo_biliar,jugo_pancreatico).
+es(duodeno,tubo_veinticinco_centimetros).
+es(yeyuno,tubo_dos_metros).
+es(ileon,tubo_cuatro_metros).
 
-es(duodeno,tubo).
-es(yeyuno,tubo).
-es(ileon,tubo).
-
-de(tubo,veinticinco_centimetros).
-de(tubo,dos_metros).
-de(tubo,cuatro_metros).
 
 funcion_de(absorber,intestino_delgado).
 conecta_con(ileon,valvula_ileocecal).
@@ -56,10 +54,28 @@ conecta_con(colon_tranverso,colon_descendente).
 conecta_con(colon_descendente,colon_sigmodeo).
 conecta_con(colon_sigmodeo,recto).
 
-parte_de(intestino_grueso,colon_ascendente).
-parte_de(intestino_grueso,colon_tranverso).
-parte_de(intestino_grueso,colon_descendente).
-parte_de(intestino_grueso,colon_sigmodeo).
-parte_de(intestino_grueso,recto).
+parte_de(colon_ascendente,intestino_grueso).
+parte_de(colon_tranverso,intestino_grueso).
+parte_de(colon_descendente,intestino_grueso).
+parte_de(colon_sigmodeo,intestino_grueso).
+parte_de(recto,intestino_grueso).
 funcion_de(absorber,intestino_grueso).
 funcion_de(desechar,intestino_grueso).
+
+
+%esfinteres%
+es(cardias,esfinter).
+es(piloro,esfinter).
+es(valvula_ileocecal,esfinter).
+
+%organos%
+es_un(boca,organo).
+es_un(faringe,organo).
+es_un(esofago,organo).
+es_un(estomago,organo).
+es_un(intestino_delgado,organo).
+es_un(intestino_grueso,organo).
+
+%enzimas%
+es_un(enzima_melasa,enzima).
+es_un(enzima_pepsina,enzima).
