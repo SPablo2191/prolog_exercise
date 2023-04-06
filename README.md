@@ -6,4 +6,4 @@
 #### Variables:
 - Son cadenas de texto que empiezan por una letra mayúscula o por el signo
 #### Relaciones:
-- Asociaciones entre atomos => ase del conocimiento en Prolog
+- Asociaciones entre atomos => hace del conocimiento en Prolog
