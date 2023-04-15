@@ -1,20 +1,28 @@
+:- dynamic suciedad/2.
+
 es(lado,a).
 es(lado,b).
-suciedad(a,sucio).
-suciedad(b,limpio).
-band = 0.
-usar_aspiradora(X):-band == 1 ->write("Revisando habitacion..."),esta_limpio(X),X == a->usar_aspiradora(b);usar_aspiradora(a).
-limpiar(X):- suciedad(X,limpio),write('se limpio la sala actual').
-esta_limpio(X):- suciedad(X,sucio) ->limpiar(X);apagar.
-apagar:- band is 1,write('Se han limpiado todos los cuartos').
 
+iniciar :- 
+    write('Ingrese el estado de suciedad del lado a (sucio/limpio): '),
+    read(SuciedadA),
+    assertz(suciedad(a, SuciedadA)),
+    write('Ingrese el estado de suciedad del lado b (sucio/limpio): '),
+    read(SuciedadB),
+    assertz(suciedad(b, SuciedadB)),
+    usar_aspiradora.
 
-%0 -> limpio 1->sucio%
-%celdas = [1,1].%
-%usar_aspiradora([]).%
-%usar_aspiradora([X|%Xs]):-write("Revisando habitacion..."),esta_limpio(X),usar_aspiradora(Xs).%
-%limpiar(X):-X = 0.%
-%esta_limpio(X):- X =\= 0->limpiar(X);apagar.%
-%apagar:- write('Se han limpiado todos los cuartos').%
+usar_aspiradora :- revisar(a).
 
+revisar(Lado) :- write('Revisando habitacion '), write(Lado), write('...'), esta_limpio(Lado), siguiente(Lado).
 
+revisar(Lado) :- write('Limpiando habitacion '), write(Lado), write('...'), limpiar(Lado), siguiente(Lado).
+
+esta_limpio(Lado) :- suciedad(Lado, limpio).
+
+siguiente(a) :- revisar(b).
+siguiente(b) :- apagar.
+
+limpiar(Lado) :- retract(suciedad(Lado, sucio)), assertz(suciedad(Lado, limpio)), write('se limpio la sala actual ').
+
+apagar :- write('Se han limpiado todos los cuartos.').
