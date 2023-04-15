@@ -13,13 +13,15 @@ class VacuumCleaner:
     def __init__(self,current_cell = None):
         self.__status = False
         self.__current_cell = current_cell
+    def getCurrentCell(self):
+        return self.__current_cell
     def turnOn(self):
         self.__status = True
     def turnOff(self):
         self.__status = False
     def clean(self):
+        self.__current_cell.setStatus(True)
         print(f"se limpio la habitación {self.__current_cell.getName()}")
-        return True
         
     def check(self):
         return self.__current_cell.getStatus()
@@ -29,12 +31,14 @@ class VacuumCleaner:
 def main():
     cells = [Side(name='a',is_cleaned=True),Side(name='b',is_cleaned=False)]
     vacuum_cleaner = VacuumCleaner()
+    vacuum_cleaner.turnOn()
     for i in range(len(cells)):
         vacuum_cleaner.move(cells[i])
         if(vacuum_cleaner.check() == False):
-            cells[0].setStatus(vacuum_cleaner.clean())
+            vacuum_cleaner.clean()
         else:
             print(f"la celda {cells[i].getName()} esta limpia")
+    vacuum_cleaner.turnOff()
     print("Todas las habitaciones fueron limpiadas con exito")
 
 if __name__ == "__main__":
